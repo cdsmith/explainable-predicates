@@ -4,9 +4,11 @@
 -- | Internal utilities used for HMock implementation.
 module Test.Predicates.Internal.Util where
 
+import Data.Generics (Data, everywhere, mkT)
 import Data.MonoTraversable (Element)
 import qualified Data.Sequences as Seq
 import GHC.Stack (CallStack, getCallStack, prettySrcLoc)
+import Language.Haskell.TH.Syntax (NameFlavour (..))
 
 -- | A value together with its source location.
 data Located a = Loc (Maybe String) a deriving (Functor)
@@ -35,3 +37,11 @@ xs `isSubsequenceOf` ys = case Seq.uncons xs of
   Just (x, xs') -> case Seq.uncons (snd (Seq.break (== x) ys)) of
     Nothing -> False
     Just (_, ys') -> xs' `isSubsequenceOf` ys'
+
+-- | Removes all module names from Template Haskell names in the given value, so
+-- that it will pretty-print more cleanly.
+removeModNames :: Data a => a -> a
+removeModNames = everywhere (mkT unMod)
+  where
+    unMod NameG {} = NameS
+    unMod other = other

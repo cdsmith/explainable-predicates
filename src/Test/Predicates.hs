@@ -10,8 +10,10 @@
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
 
--- | This module defines 'Predicate's which you can use to match the arguments
--- of a method in your execution plan.
+-- | Explainable 'Predicate's are essentially functions from types to `Bool`
+-- which can additionally describe themselves and explain why an argument does
+-- or doesn't match.  They are intended to be used during unit tests to provide
+-- better error messages when tests fail.
 module Test.Predicates
   ( -- * The Predicate type
     Predicate (..),
@@ -83,9 +85,21 @@ import GHC.Stack (HasCallStack, callStack)
 import Language.Haskell.TH (ExpQ, PatQ, pprint)
 import Language.Haskell.TH.Syntax (lift)
 import Test.Predicates.Internal.FlowMatcher (bipartiteMatching)
-import Test.Predicates.Internal.TH (removeModNames)
-import Test.Predicates.Internal.Util (isSubsequenceOf, locate, withLoc)
-import Text.Regex.TDFA hiding (match, matchAll)
+import Test.Predicates.Internal.Util
+  ( isSubsequenceOf,
+    locate,
+    removeModNames,
+    withLoc,
+  )
+import Text.Regex.TDFA
+  ( CompOption (caseSensitive, lastStarGreedy, newSyntax),
+    ExecOption (captureGroups),
+    Extract (empty),
+    Regex,
+    RegexLike (matchOnce, matchOnceText),
+    RegexMaker (makeRegexOpts),
+    RegexOptions (defaultCompOpt, defaultExecOpt),
+  )
 
 -- $setup
 -- >>> :set -XTemplateHaskell
@@ -93,11 +107,8 @@ import Text.Regex.TDFA hiding (match, matchAll)
 -- >>> :set -Wno-type-defaults
 
 -- | A predicate, which tests values and either accepts or rejects them.  This
--- is similar to @a -> 'Bool'@, but also has a 'Show' instance to describe what
--- it is checking.
---
--- 'Predicate's are used to define which arguments a general matcher should
--- accept.
+-- is similar to @a -> 'Bool'@, but also can describe itself and explain why an
+-- argument does or doesn't match.
 data Predicate a = Predicate
   { showPredicate :: String,
     showNegation :: String,

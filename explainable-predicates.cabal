@@ -2,13 +2,13 @@ cabal-version:      2.4
 name:               explainable-predicates
 version:            0.1.0.0
 synopsis:           Predicates that can explain themselves.
-description:        Explainable predicates are essentially functions from a type
-                    to 'Bool' which can also explain what they mean, and why any
-                    given argument is accepted or rejected.  They are mainly
-                    intended to be used for improving error messages from tests.
-                    .
-                    For more information, see the module documentation for
-                    "Test.Predicates".
+description:        Explainable predicates are essentially functions from types
+                    to 'Bool' which can additionally describe themselves and
+                    explain why an argument does or doesn't match.  They are
+                    intended to be used during unit tests to provide better
+                    error messages when tests fail.  For example, if a
+                    collection is missing an element, an explainable predicate
+                    can tell you which element is missing.
 category:           Testing
 homepage:           https://github.com/cdsmith/explainable-predicates
 bug-reports:        https://github.com/cdsmith/explainable-predicates/issues
@@ -29,8 +29,7 @@ source-repository head
 library
     exposed-modules:  Test.Predicates,
                       Test.Predicates.Internal.FlowMatcher
-    other-modules:    Test.Predicates.Internal.TH,
-                      Test.Predicates.Internal.Util
+    other-modules:    Test.Predicates.Internal.Util
     build-depends:    array >= 0.5.2 && < 0.6,
                       base >=4.11.0 && < 4.16,
                       mono-traversable >= 1.0.15 && < 1.1,

@@ -8,6 +8,13 @@ import Control.Monad (forM_, when)
 import Control.Monad.ST (ST)
 import Data.Array.IArray (Array, assocs, elems)
 import Data.Array.ST
+  ( MArray (newArray),
+    STArray,
+    newListArray,
+    readArray,
+    runSTArray,
+    writeArray,
+  )
 import Data.List ((\\))
 import Data.Maybe (catMaybes)
 
