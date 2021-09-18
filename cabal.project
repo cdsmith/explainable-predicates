@@ -1,0 +1,6 @@
+packages: explainable-predicates.cabal
+
+coverage: True
+library-coverage: True
+tests: True
+test-show-details: direct
