@@ -91,6 +91,7 @@ module Test.Predicates
 where
 
 import Data.Char (toUpper)
+import Data.Functor.Contravariant (Contravariant (..))
 import Data.List (intercalate)
 import Data.Maybe (catMaybes, isJust, isNothing)
 import Data.MonoTraversable (Element, MonoFoldable (..), MonoFunctor (..))
@@ -1238,6 +1239,16 @@ with f p =
     }
   where
     prop = withLoc (locate callStack "property")
+
+-- | Use 'with' or 'qWith' instead of 'contramap' to get better explanations.
+instance Contravariant Predicate where
+  contramap f p =
+    Predicate
+      { showPredicate = "in a property: " ++ show p,
+        showNegation = "in a property: " ++ showNegation p,
+        accept = accept p . f,
+        explain = ("in a property: " ++) . explain p . f
+      }
 
 -- | A Template Haskell splice that acts like 'is', but receives a quoted typed
 -- expression at compile time and has a more helpful description for error

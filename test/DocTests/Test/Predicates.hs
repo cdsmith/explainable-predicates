@@ -1,5 +1,5 @@
 -- Do not edit! Automatically created with doctest-extract from src/Test/Predicates.hs
-{-# LINE 90 "src/Test/Predicates.hs" #-}
+{-# LINE 121 "src/Test/Predicates.hs" #-}
 
 {-# OPTIONS_GHC -XTemplateHaskell #-}
 {-# OPTIONS_GHC -XTypeApplications #-}
@@ -10,919 +10,919 @@ import Test.Predicates
 import Test.DocTest.Base
 import qualified Test.DocTest.Driver as DocTest
 
-{-# LINE 94 "src/Test/Predicates.hs" #-}
+{-# LINE 125 "src/Test/Predicates.hs" #-}
 
 test :: DocTest.T ()
 test = do
- DocTest.printPrefix "Test.Predicates:121: "
-{-# LINE 121 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:149: "
+{-# LINE 149 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 121 "src/Test/Predicates.hs" #-}
+{-# LINE 149 "src/Test/Predicates.hs" #-}
       (accept anything "foo")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:123: "
-{-# LINE 123 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:151: "
+{-# LINE 151 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 123 "src/Test/Predicates.hs" #-}
+{-# LINE 151 "src/Test/Predicates.hs" #-}
       (accept anything undefined)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:136: "
-{-# LINE 136 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:164: "
+{-# LINE 164 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 136 "src/Test/Predicates.hs" #-}
+{-# LINE 164 "src/Test/Predicates.hs" #-}
       (accept (eq "foo") "foo")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:138: "
-{-# LINE 138 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:166: "
+{-# LINE 166 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 138 "src/Test/Predicates.hs" #-}
+{-# LINE 166 "src/Test/Predicates.hs" #-}
       (accept (eq "foo") "bar")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:154: "
-{-# LINE 154 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:182: "
+{-# LINE 182 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 154 "src/Test/Predicates.hs" #-}
+{-# LINE 182 "src/Test/Predicates.hs" #-}
       (accept (neq "foo") "foo")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:156: "
-{-# LINE 156 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:184: "
+{-# LINE 184 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 156 "src/Test/Predicates.hs" #-}
+{-# LINE 184 "src/Test/Predicates.hs" #-}
       (accept (neq "foo") "bar")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:163: "
-{-# LINE 163 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:191: "
+{-# LINE 191 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 163 "src/Test/Predicates.hs" #-}
+{-# LINE 191 "src/Test/Predicates.hs" #-}
       (accept (gt 5) 4)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:165: "
-{-# LINE 165 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:193: "
+{-# LINE 193 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 165 "src/Test/Predicates.hs" #-}
+{-# LINE 193 "src/Test/Predicates.hs" #-}
       (accept (gt 5) 5)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:167: "
-{-# LINE 167 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:195: "
+{-# LINE 195 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 167 "src/Test/Predicates.hs" #-}
+{-# LINE 195 "src/Test/Predicates.hs" #-}
       (accept (gt 5) 6)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:181: "
-{-# LINE 181 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 181 "src/Test/Predicates.hs" #-}
-      (accept (geq 5) 4)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:183: "
-{-# LINE 183 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 183 "src/Test/Predicates.hs" #-}
-      (accept (geq 5) 5)
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:185: "
-{-# LINE 185 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 185 "src/Test/Predicates.hs" #-}
-      (accept (geq 5) 6)
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:198: "
-{-# LINE 198 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 198 "src/Test/Predicates.hs" #-}
-      (accept (lt 5) 4)
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:200: "
-{-# LINE 200 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 200 "src/Test/Predicates.hs" #-}
-      (accept (lt 5) 5)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:202: "
-{-# LINE 202 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 202 "src/Test/Predicates.hs" #-}
-      (accept (lt 5) 6)
-  [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:209: "
 {-# LINE 209 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 209 "src/Test/Predicates.hs" #-}
-      (accept (leq 5) 4)
-  [ExpectedLine [LineChunk "True"]]
+      (accept (geq 5) 4)
+  [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:211: "
 {-# LINE 211 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 211 "src/Test/Predicates.hs" #-}
-      (accept (leq 5) 5)
+      (accept (geq 5) 5)
   [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:213: "
 {-# LINE 213 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 213 "src/Test/Predicates.hs" #-}
-      (accept (leq 5) 6)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:221: "
-{-# LINE 221 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 221 "src/Test/Predicates.hs" #-}
-      (accept (just (eq "value")) Nothing)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:223: "
-{-# LINE 223 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 223 "src/Test/Predicates.hs" #-}
-      (accept (just (eq "value")) (Just "value"))
+      (accept (geq 5) 6)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:225: "
-{-# LINE 225 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:226: "
+{-# LINE 226 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 225 "src/Test/Predicates.hs" #-}
-      (accept (just (eq "value")) (Just "wrong value"))
+{-# LINE 226 "src/Test/Predicates.hs" #-}
+      (accept (lt 5) 4)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:228: "
+{-# LINE 228 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 228 "src/Test/Predicates.hs" #-}
+      (accept (lt 5) 5)
   [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:230: "
+{-# LINE 230 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 230 "src/Test/Predicates.hs" #-}
+      (accept (lt 5) 6)
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:237: "
+{-# LINE 237 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 237 "src/Test/Predicates.hs" #-}
+      (accept (leq 5) 4)
+  [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:239: "
 {-# LINE 239 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 239 "src/Test/Predicates.hs" #-}
+      (accept (leq 5) 5)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:241: "
+{-# LINE 241 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 241 "src/Test/Predicates.hs" #-}
+      (accept (leq 5) 6)
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:249: "
+{-# LINE 249 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 249 "src/Test/Predicates.hs" #-}
+      (accept (just (eq "value")) Nothing)
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:251: "
+{-# LINE 251 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 251 "src/Test/Predicates.hs" #-}
+      (accept (just (eq "value")) (Just "value"))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:253: "
+{-# LINE 253 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 253 "src/Test/Predicates.hs" #-}
+      (accept (just (eq "value")) (Just "wrong value"))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:267: "
+{-# LINE 267 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 267 "src/Test/Predicates.hs" #-}
       (accept nothing Nothing)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:242: "
-{-# LINE 242 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:270: "
+{-# LINE 270 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 242 "src/Test/Predicates.hs" #-}
+{-# LINE 270 "src/Test/Predicates.hs" #-}
       (accept nothing (Just "something"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:256: "
-{-# LINE 256 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:284: "
+{-# LINE 284 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 256 "src/Test/Predicates.hs" #-}
+{-# LINE 284 "src/Test/Predicates.hs" #-}
       (accept (left (eq "value")) (Left "value"))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:258: "
-{-# LINE 258 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:286: "
+{-# LINE 286 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 258 "src/Test/Predicates.hs" #-}
+{-# LINE 286 "src/Test/Predicates.hs" #-}
       (accept (left (eq "value")) (Right "value"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:260: "
-{-# LINE 260 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:288: "
+{-# LINE 288 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 260 "src/Test/Predicates.hs" #-}
+{-# LINE 288 "src/Test/Predicates.hs" #-}
       (accept (left (eq "value")) (Left "wrong value"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:274: "
-{-# LINE 274 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:302: "
+{-# LINE 302 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 274 "src/Test/Predicates.hs" #-}
+{-# LINE 302 "src/Test/Predicates.hs" #-}
       (accept (right (eq "value")) (Right "value"))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:276: "
-{-# LINE 276 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:304: "
+{-# LINE 304 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 276 "src/Test/Predicates.hs" #-}
+{-# LINE 304 "src/Test/Predicates.hs" #-}
       (accept (right (eq "value")) (Right "wrong value"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:278: "
-{-# LINE 278 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:306: "
+{-# LINE 306 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 278 "src/Test/Predicates.hs" #-}
+{-# LINE 306 "src/Test/Predicates.hs" #-}
       (accept (right (eq "value")) (Left "value"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:292: "
-{-# LINE 292 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 292 "src/Test/Predicates.hs" #-}
-      (accept (zipP (eq "foo") (eq "bar")) ("foo", "bar"))
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:294: "
-{-# LINE 294 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 294 "src/Test/Predicates.hs" #-}
-      (accept (zipP (eq "foo") (eq "bar")) ("bar", "foo"))
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:318: "
-{-# LINE 318 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 318 "src/Test/Predicates.hs" #-}
-      (accept (zip3P (eq "foo") (eq "bar") (eq "qux")) ("foo", "bar", "qux"))
-  [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:320: "
 {-# LINE 320 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 320 "src/Test/Predicates.hs" #-}
+      (accept (zipP (eq "foo") (eq "bar")) ("foo", "bar"))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:322: "
+{-# LINE 322 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 322 "src/Test/Predicates.hs" #-}
+      (accept (zipP (eq "foo") (eq "bar")) ("bar", "foo"))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:346: "
+{-# LINE 346 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 346 "src/Test/Predicates.hs" #-}
+      (accept (zip3P (eq "foo") (eq "bar") (eq "qux")) ("foo", "bar", "qux"))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:348: "
+{-# LINE 348 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 348 "src/Test/Predicates.hs" #-}
       (accept (zip3P (eq "foo") (eq "bar") (eq "qux")) ("qux", "bar", "foo"))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:345: "
-{-# LINE 345 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:373: "
+{-# LINE 373 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 345 "src/Test/Predicates.hs" #-}
+{-# LINE 373 "src/Test/Predicates.hs" #-}
       (accept (zip4P (eq 1) (eq 2) (eq 3) (eq 4)) (1, 2, 3, 4))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:347: "
-{-# LINE 347 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:375: "
+{-# LINE 375 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 347 "src/Test/Predicates.hs" #-}
+{-# LINE 375 "src/Test/Predicates.hs" #-}
       (accept (zip4P (eq 1) (eq 2) (eq 3) (eq 4)) (4, 3, 2, 1))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:378: "
-{-# LINE 378 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:406: "
+{-# LINE 406 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 378 "src/Test/Predicates.hs" #-}
+{-# LINE 406 "src/Test/Predicates.hs" #-}
       (accept (zip5P (eq 1) (eq 2) (eq 3) (eq 4) (eq 5)) (1, 2, 3, 4, 5))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:380: "
-{-# LINE 380 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:408: "
+{-# LINE 408 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 380 "src/Test/Predicates.hs" #-}
+{-# LINE 408 "src/Test/Predicates.hs" #-}
       (accept (zip5P (eq 1) (eq 2) (eq 3) (eq 4) (eq 5)) (5, 4, 3, 2, 1))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:412: "
-{-# LINE 412 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:440: "
+{-# LINE 440 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 412 "src/Test/Predicates.hs" #-}
+{-# LINE 440 "src/Test/Predicates.hs" #-}
       (accept (lt "foo" `andP` gt "bar") "eta")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:414: "
-{-# LINE 414 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:442: "
+{-# LINE 442 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 414 "src/Test/Predicates.hs" #-}
+{-# LINE 442 "src/Test/Predicates.hs" #-}
       (accept (lt "foo" `andP` gt "bar") "quz")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:416: "
-{-# LINE 416 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:444: "
+{-# LINE 444 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 416 "src/Test/Predicates.hs" #-}
+{-# LINE 444 "src/Test/Predicates.hs" #-}
       (accept (lt "foo" `andP` gt "bar") "alpha")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:433: "
-{-# LINE 433 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:461: "
+{-# LINE 461 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 433 "src/Test/Predicates.hs" #-}
+{-# LINE 461 "src/Test/Predicates.hs" #-}
       (accept (lt "bar" `orP` gt "foo") "eta")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:435: "
-{-# LINE 435 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:463: "
+{-# LINE 463 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 435 "src/Test/Predicates.hs" #-}
+{-# LINE 463 "src/Test/Predicates.hs" #-}
       (accept (lt "bar" `orP` gt "foo") "quz")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:437: "
-{-# LINE 437 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:465: "
+{-# LINE 465 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 437 "src/Test/Predicates.hs" #-}
+{-# LINE 465 "src/Test/Predicates.hs" #-}
       (accept (lt "bar" `orP` gt "foo") "alpha")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:445: "
-{-# LINE 445 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:473: "
+{-# LINE 473 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 445 "src/Test/Predicates.hs" #-}
+{-# LINE 473 "src/Test/Predicates.hs" #-}
       (accept (notP (eq "negative")) "positive")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:447: "
-{-# LINE 447 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 447 "src/Test/Predicates.hs" #-}
-      (accept (notP (eq "negative")) "negative")
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:460: "
-{-# LINE 460 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 460 "src/Test/Predicates.hs" #-}
-      (accept (startsWith "fun") "fungible")
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:462: "
-{-# LINE 462 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 462 "src/Test/Predicates.hs" #-}
-      (accept (startsWith "gib") "fungible")
-  [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:475: "
 {-# LINE 475 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 475 "src/Test/Predicates.hs" #-}
+      (accept (notP (eq "negative")) "negative")
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:488: "
+{-# LINE 488 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 488 "src/Test/Predicates.hs" #-}
+      (accept (startsWith "fun") "fungible")
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:490: "
+{-# LINE 490 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 490 "src/Test/Predicates.hs" #-}
+      (accept (startsWith "gib") "fungible")
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:503: "
+{-# LINE 503 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 503 "src/Test/Predicates.hs" #-}
       (accept (endsWith "ow") "crossbow")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:477: "
-{-# LINE 477 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:505: "
+{-# LINE 505 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 477 "src/Test/Predicates.hs" #-}
+{-# LINE 505 "src/Test/Predicates.hs" #-}
       (accept (endsWith "ow") "trebuchet")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:491: "
-{-# LINE 491 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:519: "
+{-# LINE 519 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 491 "src/Test/Predicates.hs" #-}
+{-# LINE 519 "src/Test/Predicates.hs" #-}
       (accept (hasSubstr "i") "team")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:493: "
-{-# LINE 493 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:521: "
+{-# LINE 521 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 493 "src/Test/Predicates.hs" #-}
+{-# LINE 521 "src/Test/Predicates.hs" #-}
       (accept (hasSubstr "i") "partnership")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:507: "
-{-# LINE 507 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:535: "
+{-# LINE 535 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 507 "src/Test/Predicates.hs" #-}
+{-# LINE 535 "src/Test/Predicates.hs" #-}
       (accept (hasSubsequence [1..5]) [1, 2, 3, 4, 5])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:509: "
-{-# LINE 509 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:537: "
+{-# LINE 537 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 509 "src/Test/Predicates.hs" #-}
+{-# LINE 537 "src/Test/Predicates.hs" #-}
       (accept (hasSubsequence [1..5]) [0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:511: "
-{-# LINE 511 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:539: "
+{-# LINE 539 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 511 "src/Test/Predicates.hs" #-}
+{-# LINE 539 "src/Test/Predicates.hs" #-}
       (accept (hasSubsequence [1..5]) [2, 3, 5, 7, 11])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:525: "
-{-# LINE 525 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:553: "
+{-# LINE 553 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 525 "src/Test/Predicates.hs" #-}
+{-# LINE 553 "src/Test/Predicates.hs" #-}
       (accept (caseInsensitive startsWith "foo") "FOOTBALL!")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:527: "
-{-# LINE 527 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:555: "
+{-# LINE 555 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 527 "src/Test/Predicates.hs" #-}
+{-# LINE 555 "src/Test/Predicates.hs" #-}
       (accept (caseInsensitive endsWith "ball") "soccer")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:529: "
-{-# LINE 529 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:557: "
+{-# LINE 557 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 529 "src/Test/Predicates.hs" #-}
+{-# LINE 557 "src/Test/Predicates.hs" #-}
       (accept (caseInsensitive eq "time") "TIME")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:531: "
-{-# LINE 531 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:559: "
+{-# LINE 559 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 531 "src/Test/Predicates.hs" #-}
+{-# LINE 559 "src/Test/Predicates.hs" #-}
       (accept (caseInsensitive gt "NOTHING") "everything")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:558: "
-{-# LINE 558 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:586: "
+{-# LINE 586 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 558 "src/Test/Predicates.hs" #-}
+{-# LINE 586 "src/Test/Predicates.hs" #-}
       (accept (matchesRegex "x{2,5}y?") "xxxy")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:560: "
-{-# LINE 560 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:588: "
+{-# LINE 588 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 560 "src/Test/Predicates.hs" #-}
+{-# LINE 588 "src/Test/Predicates.hs" #-}
       (accept (matchesRegex "x{2,5}y?") "xyy")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:562: "
-{-# LINE 562 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:590: "
+{-# LINE 590 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 562 "src/Test/Predicates.hs" #-}
+{-# LINE 590 "src/Test/Predicates.hs" #-}
       (accept (matchesRegex "x{2,5}y?") "wxxxyz")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:592: "
-{-# LINE 592 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:620: "
+{-# LINE 620 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 592 "src/Test/Predicates.hs" #-}
+{-# LINE 620 "src/Test/Predicates.hs" #-}
       (accept (matchesCaseInsensitiveRegex "x{2,5}y?") "XXXY")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:594: "
-{-# LINE 594 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:622: "
+{-# LINE 622 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 594 "src/Test/Predicates.hs" #-}
+{-# LINE 622 "src/Test/Predicates.hs" #-}
       (accept (matchesCaseInsensitiveRegex "x{2,5}y?") "XYY")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:596: "
-{-# LINE 596 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:624: "
+{-# LINE 624 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 596 "src/Test/Predicates.hs" #-}
+{-# LINE 624 "src/Test/Predicates.hs" #-}
       (accept (matchesCaseInsensitiveRegex "x{2,5}y?") "WXXXYZ")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:632: "
-{-# LINE 632 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 632 "src/Test/Predicates.hs" #-}
-      (accept (containsRegex "x{2,5}y?") "xxxy")
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:634: "
-{-# LINE 634 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 634 "src/Test/Predicates.hs" #-}
-      (accept (containsRegex "x{2,5}y?") "xyy")
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:636: "
-{-# LINE 636 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 636 "src/Test/Predicates.hs" #-}
-      (accept (containsRegex "x{2,5}y?") "wxxxyz")
-  [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:660: "
 {-# LINE 660 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 660 "src/Test/Predicates.hs" #-}
-      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "XXXY")
+      (accept (containsRegex "x{2,5}y?") "xxxy")
   [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:662: "
 {-# LINE 662 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 662 "src/Test/Predicates.hs" #-}
-      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "XYY")
+      (accept (containsRegex "x{2,5}y?") "xyy")
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:664: "
 {-# LINE 664 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 664 "src/Test/Predicates.hs" #-}
-      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "WXXXYZ")
+      (accept (containsRegex "x{2,5}y?") "wxxxyz")
   [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:688: "
 {-# LINE 688 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 688 "src/Test/Predicates.hs" #-}
-      (accept isEmpty ([] :: [Int]))
+      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "XXXY")
   [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:690: "
 {-# LINE 690 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 690 "src/Test/Predicates.hs" #-}
-      (accept isEmpty [1, 2, 3])
+      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "XYY")
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:692: "
 {-# LINE 692 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 692 "src/Test/Predicates.hs" #-}
+      (accept (containsCaseInsensitiveRegex "x{2,5}y?") "WXXXYZ")
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:716: "
+{-# LINE 716 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 716 "src/Test/Predicates.hs" #-}
+      (accept isEmpty ([] :: [Int]))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:718: "
+{-# LINE 718 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 718 "src/Test/Predicates.hs" #-}
+      (accept isEmpty [1, 2, 3])
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:720: "
+{-# LINE 720 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 720 "src/Test/Predicates.hs" #-}
       (accept isEmpty "")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:694: "
-{-# LINE 694 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:722: "
+{-# LINE 722 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 694 "src/Test/Predicates.hs" #-}
+{-# LINE 722 "src/Test/Predicates.hs" #-}
       (accept isEmpty "gas tank")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:707: "
-{-# LINE 707 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:735: "
+{-# LINE 735 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 707 "src/Test/Predicates.hs" #-}
+{-# LINE 735 "src/Test/Predicates.hs" #-}
       (accept nonEmpty ([] :: [Int]))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:709: "
-{-# LINE 709 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:737: "
+{-# LINE 737 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 709 "src/Test/Predicates.hs" #-}
+{-# LINE 737 "src/Test/Predicates.hs" #-}
       (accept nonEmpty [1, 2, 3])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:711: "
-{-# LINE 711 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:739: "
+{-# LINE 739 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 711 "src/Test/Predicates.hs" #-}
+{-# LINE 739 "src/Test/Predicates.hs" #-}
       (accept nonEmpty "")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:713: "
-{-# LINE 713 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:741: "
+{-# LINE 741 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 713 "src/Test/Predicates.hs" #-}
+{-# LINE 741 "src/Test/Predicates.hs" #-}
       (accept nonEmpty "gas tank")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:721: "
-{-# LINE 721 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:749: "
+{-# LINE 749 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 721 "src/Test/Predicates.hs" #-}
+{-# LINE 749 "src/Test/Predicates.hs" #-}
       (accept (sizeIs (lt 3)) ['a' .. 'f'])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:723: "
-{-# LINE 723 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:751: "
+{-# LINE 751 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 723 "src/Test/Predicates.hs" #-}
+{-# LINE 751 "src/Test/Predicates.hs" #-}
       (accept (sizeIs (lt 3)) ['a' .. 'b'])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:744: "
-{-# LINE 744 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:772: "
+{-# LINE 772 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 744 "src/Test/Predicates.hs" #-}
+{-# LINE 772 "src/Test/Predicates.hs" #-}
       (accept (elemsAre [lt 3, lt 4, lt 5]) [2, 3, 4])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:746: "
-{-# LINE 746 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:774: "
+{-# LINE 774 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 746 "src/Test/Predicates.hs" #-}
+{-# LINE 774 "src/Test/Predicates.hs" #-}
       (accept (elemsAre [lt 3, lt 4, lt 5]) [2, 3, 4, 5])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:748: "
-{-# LINE 748 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:776: "
+{-# LINE 776 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 748 "src/Test/Predicates.hs" #-}
+{-# LINE 776 "src/Test/Predicates.hs" #-}
       (accept (elemsAre [lt 3, lt 4, lt 5]) [2, 10, 4])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:780: "
-{-# LINE 780 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:808: "
+{-# LINE 808 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 780 "src/Test/Predicates.hs" #-}
+{-# LINE 808 "src/Test/Predicates.hs" #-}
       (accept (unorderedElemsAre [eq 1, eq 2, eq 3]) [1, 2, 3])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:782: "
-{-# LINE 782 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:810: "
+{-# LINE 810 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 782 "src/Test/Predicates.hs" #-}
+{-# LINE 810 "src/Test/Predicates.hs" #-}
       (accept (unorderedElemsAre [eq 1, eq 2, eq 3]) [2, 3, 1])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:784: "
-{-# LINE 784 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:812: "
+{-# LINE 812 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 784 "src/Test/Predicates.hs" #-}
+{-# LINE 812 "src/Test/Predicates.hs" #-}
       (accept (unorderedElemsAre [eq 1, eq 2, eq 3]) [1, 2, 3, 4])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:786: "
-{-# LINE 786 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:814: "
+{-# LINE 814 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 786 "src/Test/Predicates.hs" #-}
+{-# LINE 814 "src/Test/Predicates.hs" #-}
       (accept (unorderedElemsAre [eq 1, eq 2, eq 3]) [1, 3])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:833: "
-{-# LINE 833 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:861: "
+{-# LINE 861 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 833 "src/Test/Predicates.hs" #-}
+{-# LINE 861 "src/Test/Predicates.hs" #-}
       (accept (each (gt 5)) [4, 5, 6])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:835: "
-{-# LINE 835 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:863: "
+{-# LINE 863 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 835 "src/Test/Predicates.hs" #-}
+{-# LINE 863 "src/Test/Predicates.hs" #-}
       (accept (each (gt 5)) [6, 7, 8])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:837: "
-{-# LINE 837 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:865: "
+{-# LINE 865 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 837 "src/Test/Predicates.hs" #-}
+{-# LINE 865 "src/Test/Predicates.hs" #-}
       (accept (each (gt 5)) [])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:862: "
-{-# LINE 862 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:890: "
+{-# LINE 890 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 862 "src/Test/Predicates.hs" #-}
+{-# LINE 890 "src/Test/Predicates.hs" #-}
       (accept (contains (gt 5)) [3, 4, 5])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:864: "
-{-# LINE 864 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:892: "
+{-# LINE 892 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 864 "src/Test/Predicates.hs" #-}
+{-# LINE 892 "src/Test/Predicates.hs" #-}
       (accept (contains (gt 5)) [4, 5, 6])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:866: "
-{-# LINE 866 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:894: "
+{-# LINE 894 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 866 "src/Test/Predicates.hs" #-}
+{-# LINE 894 "src/Test/Predicates.hs" #-}
       (accept (contains (gt 5)) [])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:874: "
-{-# LINE 874 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:902: "
+{-# LINE 902 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 874 "src/Test/Predicates.hs" #-}
+{-# LINE 902 "src/Test/Predicates.hs" #-}
       (accept (containsAll [eq "foo", eq "bar"]) ["bar", "foo"])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:876: "
-{-# LINE 876 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:904: "
+{-# LINE 904 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 876 "src/Test/Predicates.hs" #-}
+{-# LINE 904 "src/Test/Predicates.hs" #-}
       (accept (containsAll [eq "foo", eq "bar"]) ["foo"])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:878: "
-{-# LINE 878 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:906: "
+{-# LINE 906 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 878 "src/Test/Predicates.hs" #-}
+{-# LINE 906 "src/Test/Predicates.hs" #-}
       (accept (containsAll [eq "foo", eq "bar"]) ["foo", "bar", "qux"])
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:886: "
-{-# LINE 886 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 886 "src/Test/Predicates.hs" #-}
-      (accept (containsAll [startsWith "f", endsWith "o"]) ["foo"])
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:888: "
-{-# LINE 888 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 888 "src/Test/Predicates.hs" #-}
-      (accept (contains (startsWith "f") `andP` contains (endsWith "o")) ["foo"])
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:910: "
-{-# LINE 910 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 910 "src/Test/Predicates.hs" #-}
-      (accept (containsOnly [eq "foo", eq "bar"]) ["foo"])
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:912: "
-{-# LINE 912 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 912 "src/Test/Predicates.hs" #-}
-      (accept (containsOnly [eq "foo", eq "bar"]) ["foo", "bar"])
   [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:914: "
 {-# LINE 914 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 914 "src/Test/Predicates.hs" #-}
+      (accept (containsAll [startsWith "f", endsWith "o"]) ["foo"])
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:916: "
+{-# LINE 916 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 916 "src/Test/Predicates.hs" #-}
+      (accept (contains (startsWith "f") `andP` contains (endsWith "o")) ["foo"])
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:938: "
+{-# LINE 938 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 938 "src/Test/Predicates.hs" #-}
+      (accept (containsOnly [eq "foo", eq "bar"]) ["foo"])
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:940: "
+{-# LINE 940 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 940 "src/Test/Predicates.hs" #-}
+      (accept (containsOnly [eq "foo", eq "bar"]) ["foo", "bar"])
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:942: "
+{-# LINE 942 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 942 "src/Test/Predicates.hs" #-}
       (accept (containsOnly [eq "foo", eq "bar"]) ["foo", "qux"])
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:921: "
-{-# LINE 921 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 921 "src/Test/Predicates.hs" #-}
-      (accept (containsOnly [eq "foo", eq "bar"]) ["foo", "foo"])
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:923: "
-{-# LINE 923 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 923 "src/Test/Predicates.hs" #-}
-      (accept (each (eq "foo" `orP` eq "bar")) ["foo", "foo"])
-  [ExpectedLine [LineChunk "True"]]
  DocTest.printPrefix "Test.Predicates:949: "
 {-# LINE 949 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 949 "src/Test/Predicates.hs" #-}
+      (accept (containsOnly [eq "foo", eq "bar"]) ["foo", "foo"])
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:951: "
+{-# LINE 951 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 951 "src/Test/Predicates.hs" #-}
+      (accept (each (eq "foo" `orP` eq "bar")) ["foo", "foo"])
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:977: "
+{-# LINE 977 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 977 "src/Test/Predicates.hs" #-}
       (accept (keys (each (eq "foo"))) [("foo", 5)])
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:952: "
-{-# LINE 952 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:980: "
+{-# LINE 980 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 952 "src/Test/Predicates.hs" #-}
+{-# LINE 980 "src/Test/Predicates.hs" #-}
       (accept (keys (each (eq "foo"))) [("foo", 5), ("bar", 6)])
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:968: "
-{-# LINE 968 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 968 "src/Test/Predicates.hs" #-}
-      (accept (values (each (eq 5))) [("foo", 5), ("bar", 5)])
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:971: "
-{-# LINE 971 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 971 "src/Test/Predicates.hs" #-}
-      (accept (values (each (eq 5))) [("foo", 5), ("bar", 6)])
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:989: "
-{-# LINE 989 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 989 "src/Test/Predicates.hs" #-}
-      (accept (eq 1.0) (sum (replicate 100 0.01)))
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:996: "
 {-# LINE 996 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 996 "src/Test/Predicates.hs" #-}
+      (accept (values (each (eq 5))) [("foo", 5), ("bar", 5)])
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:999: "
+{-# LINE 999 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 999 "src/Test/Predicates.hs" #-}
+      (accept (values (each (eq 5))) [("foo", 5), ("bar", 6)])
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1017: "
+{-# LINE 1017 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1017 "src/Test/Predicates.hs" #-}
+      (accept (eq 1.0) (sum (replicate 100 0.01)))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1024: "
+{-# LINE 1024 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1024 "src/Test/Predicates.hs" #-}
       (accept (approxEq 1.0) (sum (replicate 100 0.01)))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:998: "
-{-# LINE 998 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1026: "
+{-# LINE 1026 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 998 "src/Test/Predicates.hs" #-}
+{-# LINE 1026 "src/Test/Predicates.hs" #-}
       (accept (approxEq 1.0) (sum (replicate 100 0.009999)))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1013: "
-{-# LINE 1013 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1041: "
+{-# LINE 1041 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1013 "src/Test/Predicates.hs" #-}
+{-# LINE 1041 "src/Test/Predicates.hs" #-}
       (accept positive 1)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1016: "
-{-# LINE 1016 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1044: "
+{-# LINE 1044 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1016 "src/Test/Predicates.hs" #-}
+{-# LINE 1044 "src/Test/Predicates.hs" #-}
       (accept positive 0)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1019: "
-{-# LINE 1019 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1047: "
+{-# LINE 1047 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1019 "src/Test/Predicates.hs" #-}
+{-# LINE 1047 "src/Test/Predicates.hs" #-}
       (accept positive (-1))
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1037: "
-{-# LINE 1037 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1037 "src/Test/Predicates.hs" #-}
-      (accept negative 1)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1040: "
-{-# LINE 1040 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1040 "src/Test/Predicates.hs" #-}
-      (accept negative 0)
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1043: "
-{-# LINE 1043 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1043 "src/Test/Predicates.hs" #-}
-      (accept negative (-1))
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1062: "
-{-# LINE 1062 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1062 "src/Test/Predicates.hs" #-}
-      (accept nonPositive 1)
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:1065: "
 {-# LINE 1065 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 1065 "src/Test/Predicates.hs" #-}
-      (accept nonPositive 0)
-  [ExpectedLine [LineChunk "True"]]
+      (accept negative 1)
+  [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:1068: "
 {-# LINE 1068 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 1068 "src/Test/Predicates.hs" #-}
-      (accept nonPositive (-1))
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1076: "
-{-# LINE 1076 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1076 "src/Test/Predicates.hs" #-}
-      (accept nonNegative 1)
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1079: "
-{-# LINE 1079 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1079 "src/Test/Predicates.hs" #-}
-      (accept nonNegative 0)
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1082: "
-{-# LINE 1082 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1082 "src/Test/Predicates.hs" #-}
-      (accept nonNegative (-1))
+      (accept negative 0)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1089: "
-{-# LINE 1089 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1071: "
+{-# LINE 1071 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1089 "src/Test/Predicates.hs" #-}
-      (accept finite 1.0)
+{-# LINE 1071 "src/Test/Predicates.hs" #-}
+      (accept negative (-1))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1091: "
-{-# LINE 1091 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1090: "
+{-# LINE 1090 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1091 "src/Test/Predicates.hs" #-}
-      (accept finite (0 / 0))
+{-# LINE 1090 "src/Test/Predicates.hs" #-}
+      (accept nonPositive 1)
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:1093: "
 {-# LINE 1093 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 1093 "src/Test/Predicates.hs" #-}
+      (accept nonPositive 0)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1096: "
+{-# LINE 1096 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1096 "src/Test/Predicates.hs" #-}
+      (accept nonPositive (-1))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1104: "
+{-# LINE 1104 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1104 "src/Test/Predicates.hs" #-}
+      (accept nonNegative 1)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1107: "
+{-# LINE 1107 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1107 "src/Test/Predicates.hs" #-}
+      (accept nonNegative 0)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1110: "
+{-# LINE 1110 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1110 "src/Test/Predicates.hs" #-}
+      (accept nonNegative (-1))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1117: "
+{-# LINE 1117 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1117 "src/Test/Predicates.hs" #-}
+      (accept finite 1.0)
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1119: "
+{-# LINE 1119 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1119 "src/Test/Predicates.hs" #-}
+      (accept finite (0 / 0))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1121: "
+{-# LINE 1121 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1121 "src/Test/Predicates.hs" #-}
       (accept finite (1 / 0))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1111: "
-{-# LINE 1111 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1139: "
+{-# LINE 1139 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1111 "src/Test/Predicates.hs" #-}
+{-# LINE 1139 "src/Test/Predicates.hs" #-}
       (accept infinite 1.0)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1113: "
-{-# LINE 1113 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1141: "
+{-# LINE 1141 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1113 "src/Test/Predicates.hs" #-}
+{-# LINE 1141 "src/Test/Predicates.hs" #-}
       (accept infinite (0 / 0))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1115: "
-{-# LINE 1115 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1143: "
+{-# LINE 1143 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1115 "src/Test/Predicates.hs" #-}
+{-# LINE 1143 "src/Test/Predicates.hs" #-}
       (accept infinite (1 / 0))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1131: "
-{-# LINE 1131 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1159: "
+{-# LINE 1159 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1131 "src/Test/Predicates.hs" #-}
+{-# LINE 1159 "src/Test/Predicates.hs" #-}
       (accept nAn 1.0)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1133: "
-{-# LINE 1133 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1161: "
+{-# LINE 1161 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1133 "src/Test/Predicates.hs" #-}
+{-# LINE 1161 "src/Test/Predicates.hs" #-}
       (accept nAn (0 / 0))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1135: "
-{-# LINE 1135 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1163: "
+{-# LINE 1163 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1135 "src/Test/Predicates.hs" #-}
+{-# LINE 1163 "src/Test/Predicates.hs" #-}
       (accept nAn (1 / 0))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1153: "
-{-# LINE 1153 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1181: "
+{-# LINE 1181 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1153 "src/Test/Predicates.hs" #-}
+{-# LINE 1181 "src/Test/Predicates.hs" #-}
       (accept (is even) 3)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1155: "
-{-# LINE 1155 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1183: "
+{-# LINE 1183 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1155 "src/Test/Predicates.hs" #-}
+{-# LINE 1183 "src/Test/Predicates.hs" #-}
       (accept (is even) 4)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1173: "
-{-# LINE 1173 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1201: "
+{-# LINE 1201 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1173 "src/Test/Predicates.hs" #-}
+{-# LINE 1201 "src/Test/Predicates.hs" #-}
       (accept $(qIs [| even |]) 3)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1175: "
-{-# LINE 1175 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1203: "
+{-# LINE 1203 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1175 "src/Test/Predicates.hs" #-}
+{-# LINE 1203 "src/Test/Predicates.hs" #-}
       (accept $(qIs [| even |]) 4)
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1178: "
-{-# LINE 1178 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1206: "
+{-# LINE 1206 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1178 "src/Test/Predicates.hs" #-}
+{-# LINE 1206 "src/Test/Predicates.hs" #-}
       (show $(qIs [| even |]))
   [ExpectedLine [LineChunk "\"even\""]]
- DocTest.printPrefix "Test.Predicates:1196: "
-{-# LINE 1196 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1224: "
+{-# LINE 1224 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1196 "src/Test/Predicates.hs" #-}
+{-# LINE 1224 "src/Test/Predicates.hs" #-}
       (accept (with abs (gt 5)) (-6))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1198: "
-{-# LINE 1198 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1226: "
+{-# LINE 1226 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1198 "src/Test/Predicates.hs" #-}
+{-# LINE 1226 "src/Test/Predicates.hs" #-}
       (accept (with abs (gt 5)) (-5))
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1200: "
-{-# LINE 1200 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1200 "src/Test/Predicates.hs" #-}
-      (accept (with reverse (eq "olleh")) "hello")
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1202: "
-{-# LINE 1202 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1202 "src/Test/Predicates.hs" #-}
-      (accept (with reverse (eq "olleh")) "goodbye")
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1219: "
-{-# LINE 1219 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1219 "src/Test/Predicates.hs" #-}
-      (accept ($(qWith [| abs |]) (gt 5)) (-6))
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1221: "
-{-# LINE 1221 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1221 "src/Test/Predicates.hs" #-}
-      (accept ($(qWith [| abs |]) (gt 5)) (-5))
-  [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1223: "
-{-# LINE 1223 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1223 "src/Test/Predicates.hs" #-}
-      (accept ($(qWith [| reverse |]) (eq "olleh")) "hello")
-  [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1225: "
-{-# LINE 1225 "src/Test/Predicates.hs" #-}
- DocTest.example
-{-# LINE 1225 "src/Test/Predicates.hs" #-}
-      (accept ($(qWith [| reverse |]) (eq "olleh")) "goodbye")
   [ExpectedLine [LineChunk "False"]]
  DocTest.printPrefix "Test.Predicates:1228: "
 {-# LINE 1228 "src/Test/Predicates.hs" #-}
  DocTest.example
 {-# LINE 1228 "src/Test/Predicates.hs" #-}
+      (accept (with reverse (eq "olleh")) "hello")
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1230: "
+{-# LINE 1230 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1230 "src/Test/Predicates.hs" #-}
+      (accept (with reverse (eq "olleh")) "goodbye")
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1257: "
+{-# LINE 1257 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1257 "src/Test/Predicates.hs" #-}
+      (accept ($(qWith [| abs |]) (gt 5)) (-6))
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1259: "
+{-# LINE 1259 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1259 "src/Test/Predicates.hs" #-}
+      (accept ($(qWith [| abs |]) (gt 5)) (-5))
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1261: "
+{-# LINE 1261 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1261 "src/Test/Predicates.hs" #-}
+      (accept ($(qWith [| reverse |]) (eq "olleh")) "hello")
+  [ExpectedLine [LineChunk "True"]]
+ DocTest.printPrefix "Test.Predicates:1263: "
+{-# LINE 1263 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1263 "src/Test/Predicates.hs" #-}
+      (accept ($(qWith [| reverse |]) (eq "olleh")) "goodbye")
+  [ExpectedLine [LineChunk "False"]]
+ DocTest.printPrefix "Test.Predicates:1266: "
+{-# LINE 1266 "src/Test/Predicates.hs" #-}
+ DocTest.example
+{-# LINE 1266 "src/Test/Predicates.hs" #-}
       (show ($(qWith [| abs |]) (gt 5)))
   [ExpectedLine [LineChunk "\"abs: > 5\""]]
- DocTest.printPrefix "Test.Predicates:1247: "
-{-# LINE 1247 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1285: "
+{-# LINE 1285 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1247 "src/Test/Predicates.hs" #-}
+{-# LINE 1285 "src/Test/Predicates.hs" #-}
       (accept $(qMatch [p| Just (Left _) |]) Nothing)
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1249: "
-{-# LINE 1249 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1287: "
+{-# LINE 1287 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1249 "src/Test/Predicates.hs" #-}
+{-# LINE 1287 "src/Test/Predicates.hs" #-}
       (accept $(qMatch [p| Just (Left _) |]) (Just (Left 5)))
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1251: "
-{-# LINE 1251 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1289: "
+{-# LINE 1289 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1251 "src/Test/Predicates.hs" #-}
+{-# LINE 1289 "src/Test/Predicates.hs" #-}
       (accept $(qMatch [p| Just (Left _) |]) (Just (Right 5)))
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1254: "
-{-# LINE 1254 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1292: "
+{-# LINE 1292 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1254 "src/Test/Predicates.hs" #-}
+{-# LINE 1292 "src/Test/Predicates.hs" #-}
       (show $(qMatch [p| Just (Left _) |]))
   [ExpectedLine [LineChunk "\"Just (Left _)\""]]
- DocTest.printPrefix "Test.Predicates:1276: "
-{-# LINE 1276 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1314: "
+{-# LINE 1314 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1276 "src/Test/Predicates.hs" #-}
+{-# LINE 1314 "src/Test/Predicates.hs" #-}
       (accept (typed @String anything) "foo")
   [ExpectedLine [LineChunk "True"]]
- DocTest.printPrefix "Test.Predicates:1278: "
-{-# LINE 1278 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1316: "
+{-# LINE 1316 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1278 "src/Test/Predicates.hs" #-}
+{-# LINE 1316 "src/Test/Predicates.hs" #-}
       (accept (typed @String (sizeIs (gt 5))) "foo")
   [ExpectedLine [LineChunk "False"]]
- DocTest.printPrefix "Test.Predicates:1280: "
-{-# LINE 1280 "src/Test/Predicates.hs" #-}
+ DocTest.printPrefix "Test.Predicates:1318: "
+{-# LINE 1318 "src/Test/Predicates.hs" #-}
  DocTest.example
-{-# LINE 1280 "src/Test/Predicates.hs" #-}
+{-# LINE 1318 "src/Test/Predicates.hs" #-}
       (accept (typed @String anything) (42 :: Int))
   [ExpectedLine [LineChunk "False"]]
