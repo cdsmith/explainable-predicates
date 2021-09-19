@@ -15,5 +15,5 @@ Here are a few tips for making the most of explainable-predicates.
 
 ### Which GHC versions are supported?
 
-explainable-predicates is tested with GHC versions from 8.4 through 9.0.
+explainable-predicates is tested with GHC versions from 8.6 through 9.0.
 
