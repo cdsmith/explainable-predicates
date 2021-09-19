@@ -19,6 +19,8 @@ module Test.Predicates
     Predicate (..),
 
     -- * Predicate combinators
+
+    -- ** Basic predicates
     anything,
     eq,
     neq,
@@ -30,22 +32,32 @@ module Test.Predicates
     nothing,
     left,
     right,
+
+    -- ** Zips
     zipP,
     zip3P,
     zip4P,
     zip5P,
+
+    -- ** Logic
     andP,
     orP,
     notP,
+
+    -- ** Strings and sequences
     startsWith,
     endsWith,
     hasSubstr,
     hasSubsequence,
     caseInsensitive,
+
+    -- ** Regular expressions
     matchesRegex,
     matchesCaseInsensitiveRegex,
     containsRegex,
     containsCaseInsensitiveRegex,
+
+    -- ** Containers
     isEmpty,
     nonEmpty,
     sizeIs,
@@ -57,6 +69,8 @@ module Test.Predicates
     containsOnly,
     keys,
     values,
+
+    -- ** Numerics
     approxEq,
     positive,
     negative,
@@ -65,6 +79,8 @@ module Test.Predicates
     finite,
     infinite,
     nAn,
+
+    -- ** Miscellaneous
     is,
     qIs,
     with,
