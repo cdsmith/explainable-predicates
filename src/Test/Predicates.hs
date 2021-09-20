@@ -1176,7 +1176,8 @@ nAn =
 
 -- | A conversion from @a -> 'Bool'@ to 'Predicate'.  This is a fallback that
 -- can be used to build a 'Predicate' that checks anything at all.  However, its
--- description will be less helpful than standard 'Predicate's.
+-- description will be less helpful than standard 'Predicate's.  You can use
+-- 'qIs' instead to get better descriptions using Template Haskell.
 --
 -- >>> accept (is even) 3
 -- False
@@ -1195,8 +1196,7 @@ is p =
     }
 
 -- | A Template Haskell splice that acts like 'is', but receives a quoted
--- expression at compile time and has a more helpful description for error
--- messages.
+-- expression at compile time and has a more helpful explanation.
 --
 -- >>> accept $(qIs [| even |]) 3
 -- False
@@ -1219,7 +1219,9 @@ qIs p =
     description = lift . pprint . removeModNames =<< p
 
 -- | A combinator to lift a 'Predicate' to work on a property or computed value
--- of the original value.
+-- of the original value.  The explanations are less helpful that standard
+-- predicates like 'size'.  You can use 'qWith' instead to get better
+-- explanations using Template Haskell.
 --
 -- >>> accept (with abs (gt 5)) (-6)
 -- True
@@ -1250,9 +1252,8 @@ instance Contravariant Predicate where
         explain = ("in a property: " ++) . explain p . f
       }
 
--- | A Template Haskell splice that acts like 'is', but receives a quoted typed
--- expression at compile time and has a more helpful description for error
--- messages.
+-- | A Template Haskell splice that acts like 'with', but receives a quoted
+-- typed expression at compile time and has a more helpful explanation.
 --
 -- >>> accept ($(qWith [| abs |]) (gt 5)) (-6)
 -- True
