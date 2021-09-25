@@ -1,17 +1,25 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeApplications #-}
 
 import Data.List (isPrefixOf)
 import Data.Typeable (Typeable)
-import qualified DocTests.All
-import qualified Test.DocTest.Driver as DocTest
 import Test.Hspec
 import Test.Predicates
+
+#ifdef REGEX
+
+import qualified DocTests.All
+import qualified Test.DocTest.Driver as DocTest
+
+#endif
 
 main :: IO ()
 main = do
   hspec predicateTests
+#ifdef REGEX
   DocTest.run DocTests.All.main
+#endif
 
 predicateTests :: SpecWith ()
 predicateTests = do
@@ -55,6 +63,7 @@ predicateTests = do
           `shouldBe` "(case insensitive) starts with \"foo\""
         show (caseInsensitive endsWith "foo")
           `shouldBe` "(case insensitive) ends with \"foo\""
+#ifdef REGEX
         show (matchesRegex "foo" :: Predicate String)
           `shouldBe` "/foo/"
         show (matchesCaseInsensitiveRegex "foo" :: Predicate String)
@@ -63,6 +72,7 @@ predicateTests = do
           `shouldBe` "contains /foo/"
         show (containsCaseInsensitiveRegex "foo" :: Predicate String)
           `shouldBe` "contains /foo/i"
+#endif
         show (isEmpty :: Predicate [()]) `shouldBe` "empty"
         show (nonEmpty :: Predicate [()]) `shouldBe` "non-empty"
         show (sizeIs (gt 5) :: Predicate [()]) `shouldBe` "size > 5"

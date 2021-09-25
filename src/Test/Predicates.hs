@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
@@ -51,12 +52,13 @@ module Test.Predicates
     hasSubstr,
     hasSubsequence,
     caseInsensitive,
-
+#ifdef REGEX
     -- ** Regular expressions
     matchesRegex,
     matchesCaseInsensitiveRegex,
     containsRegex,
     containsCaseInsensitiveRegex,
+#endif
 
     -- ** Containers
     isEmpty,
@@ -109,6 +111,8 @@ import Test.Predicates.Internal.Util
     removeModNames,
     withLoc,
   )
+
+#ifdef REGEX
 import Text.Regex.TDFA
   ( CompOption (caseSensitive, lastStarGreedy, newSyntax),
     ExecOption (captureGroups),
@@ -118,6 +122,7 @@ import Text.Regex.TDFA
     RegexMaker (makeRegexOpts),
     RegexOptions (defaultCompOpt, defaultExecOpt),
   )
+#endif
 
 -- $setup
 -- >>> :set -XTemplateHaskell
@@ -586,6 +591,8 @@ caseInsensitive p s =
   where
     capP = p (omap toUpper s)
 
+#ifdef REGEX
+
 -- | A 'Predicate' that accepts 'String's or string-like values matching a
 -- regular expression.  The expression must match the entire argument.
 --
@@ -720,6 +727,8 @@ containsCaseInsensitiveRegex s = withDefaultExplain show " " $ \explainImpl ->
           caseSensitive = False
         }
     exec = defaultExecOpt {captureGroups = False}
+
+#endif
 
 -- | A 'Predicate' that accepts empty data structures.
 --

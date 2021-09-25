@@ -4,6 +4,7 @@
 
 * `Predicate` now has a `Contravariant` instance.
 * `==~` is an infix synonym for `accept`.
+* Cabal `regex` flag (default true) enables regex support.
 
 ## 0.1.0.0 -- 2021-09-18
 
