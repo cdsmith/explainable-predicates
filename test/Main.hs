@@ -7,7 +7,7 @@ import Data.Typeable (Typeable)
 import Test.Hspec
 import Test.Predicates
 
-#ifdef REGEX
+#ifdef DOCTESTS
 
 import qualified DocTests.All
 import qualified Test.DocTest.Driver as DocTest
@@ -17,7 +17,7 @@ import qualified Test.DocTest.Driver as DocTest
 main :: IO ()
 main = do
   hspec predicateTests
-#ifdef REGEX
+#ifdef DOCTESTS
   DocTest.run DocTests.All.main
 #endif
 
@@ -54,15 +54,6 @@ predicateTests = do
         show (lt "bar" `orP` gt "foo")
           `shouldBe` "< \"bar\" or > \"foo\""
         show (notP (gt "foo")) `shouldBe` "≤ \"foo\""
-        show (startsWith "fun") `shouldBe` "starts with \"fun\""
-        show (endsWith "ing") `shouldBe` "ends with \"ing\""
-        show (hasSubstr "i") `shouldBe` "has substring \"i\""
-        show (hasSubsequence "abc") `shouldBe` "has subsequence \"abc\""
-        show (caseInsensitive eq "foo") `shouldBe` "(case insensitive) \"foo\""
-        show (caseInsensitive startsWith "foo")
-          `shouldBe` "(case insensitive) starts with \"foo\""
-        show (caseInsensitive endsWith "foo")
-          `shouldBe` "(case insensitive) ends with \"foo\""
 #ifdef REGEX
         show (matchesRegex "foo" :: Predicate String)
           `shouldBe` "/foo/"
@@ -73,6 +64,16 @@ predicateTests = do
         show (containsCaseInsensitiveRegex "foo" :: Predicate String)
           `shouldBe` "contains /foo/i"
 #endif
+#ifdef CONTAINERS
+        show (startsWith "fun") `shouldBe` "starts with \"fun\""
+        show (endsWith "ing") `shouldBe` "ends with \"ing\""
+        show (hasSubstr "i") `shouldBe` "has substring \"i\""
+        show (hasSubsequence "abc") `shouldBe` "has subsequence \"abc\""
+        show (caseInsensitive eq "foo") `shouldBe` "(case insensitive) \"foo\""
+        show (caseInsensitive startsWith "foo")
+          `shouldBe` "(case insensitive) starts with \"foo\""
+        show (caseInsensitive endsWith "foo")
+          `shouldBe` "(case insensitive) ends with \"foo\""
         show (isEmpty :: Predicate [()]) `shouldBe` "empty"
         show (nonEmpty :: Predicate [()]) `shouldBe` "non-empty"
         show (sizeIs (gt 5) :: Predicate [()]) `shouldBe` "size > 5"
@@ -100,6 +101,7 @@ predicateTests = do
         show
           (values (elemsAre [eq "one", eq "two"]) :: Predicate [(Int, String)])
           `shouldBe` "values ([\"one\",\"two\"])"
+#endif
         show (approxEq 1.0 :: Predicate Double) `shouldBe` "≈ 1.0"
         show (finite :: Predicate Double) `shouldBe` "finite"
         show (infinite :: Predicate Double) `shouldBe` "infinite"

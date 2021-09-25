@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE FlexibleContexts #-}
 
@@ -5,10 +6,13 @@
 module Test.Predicates.Internal.Util where
 
 import Data.Generics (Data, everywhere, mkT)
-import Data.MonoTraversable (Element)
-import qualified Data.Sequences as Seq
 import GHC.Stack (CallStack, getCallStack, prettySrcLoc)
 import Language.Haskell.TH.Syntax (NameFlavour (..))
+
+#ifdef CONTAINERS
+import Data.MonoTraversable (Element)
+import qualified Data.Sequences as Seq
+#endif
 
 -- | A value together with its source location.
 data Located a = Loc (Maybe String) a deriving (Functor)
@@ -30,6 +34,8 @@ choices :: [a] -> [(a, [a])]
 choices [] = []
 choices (x : xs) = (x, xs) : (fmap (x :) <$> choices xs)
 
+#ifdef CONTAINERS
+
 -- | Checks if one sequence is a subsequence of another.
 isSubsequenceOf :: (Seq.IsSequence t, Eq (Element t)) => t -> t -> Bool
 xs `isSubsequenceOf` ys = case Seq.uncons xs of
@@ -37,6 +43,8 @@ xs `isSubsequenceOf` ys = case Seq.uncons xs of
   Just (x, xs') -> case Seq.uncons (snd (Seq.break (== x) ys)) of
     Nothing -> False
     Just (_, ys') -> xs' `isSubsequenceOf` ys'
+
+#endif
 
 -- | Removes all module names from Template Haskell names in the given value, so
 -- that it will pretty-print more cleanly.

@@ -4,7 +4,9 @@
 
 * `Predicate` now has a `Contravariant` instance.
 * `==~` is an infix synonym for `accept`.
-* Cabal `regex` flag (default true) enables regex support.
+* Cabal `regex` and `containers` flags (default true) enable regex and
+  container predicates, respectively.
+* Cabal `dev` flag (default false) turns GHC warnings into errors.
 
 ## 0.1.0.0 -- 2021-09-18
 

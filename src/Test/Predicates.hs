@@ -45,13 +45,6 @@ module Test.Predicates
     andP,
     orP,
     notP,
-
-    -- ** Strings and sequences
-    startsWith,
-    endsWith,
-    hasSubstr,
-    hasSubsequence,
-    caseInsensitive,
 #ifdef REGEX
     -- ** Regular expressions
     matchesRegex,
@@ -59,6 +52,15 @@ module Test.Predicates
     containsRegex,
     containsCaseInsensitiveRegex,
 #endif
+
+#ifdef CONTAINERS
+
+    -- ** Strings and sequences
+    startsWith,
+    endsWith,
+    hasSubstr,
+    hasSubsequence,
+    caseInsensitive,
 
     -- ** Containers
     isEmpty,
@@ -72,6 +74,7 @@ module Test.Predicates
     containsOnly,
     keys,
     values,
+#endif
 
     -- ** Numerics
     approxEq,
@@ -93,26 +96,17 @@ module Test.Predicates
   )
 where
 
-import Data.Char (toUpper)
 import Data.Functor.Contravariant (Contravariant (..))
 import Data.List (intercalate)
-import Data.Maybe (catMaybes, isJust, isNothing)
-import Data.MonoTraversable (Element, MonoFoldable (..), MonoFunctor (..))
-import qualified Data.Sequences as Seq
+import Data.Maybe (isNothing)
 import Data.Typeable (Proxy (..), Typeable, cast, typeRep)
-import GHC.Exts (IsList (Item, toList))
 import GHC.Stack (HasCallStack, callStack)
 import Language.Haskell.TH (ExpQ, PatQ, pprint)
 import Language.Haskell.TH.Syntax (lift)
-import Test.Predicates.Internal.FlowMatcher (bipartiteMatching)
-import Test.Predicates.Internal.Util
-  ( isSubsequenceOf,
-    locate,
-    removeModNames,
-    withLoc,
-  )
+import Test.Predicates.Internal.Util (locate, removeModNames, withLoc)
 
 #ifdef REGEX
+import Data.Maybe (isJust)
 import Text.Regex.TDFA
   ( CompOption (caseSensitive, lastStarGreedy, newSyntax),
     ExecOption (captureGroups),
@@ -122,6 +116,16 @@ import Text.Regex.TDFA
     RegexMaker (makeRegexOpts),
     RegexOptions (defaultCompOpt, defaultExecOpt),
   )
+#endif
+
+#ifdef CONTAINERS
+import Data.Char (toUpper)
+import Data.Maybe (catMaybes)
+import Data.MonoTraversable (Element, MonoFoldable (..), MonoFunctor (..))
+import qualified Data.Sequences as Seq
+import GHC.Exts (IsList (Item, toList))
+import Test.Predicates.Internal.FlowMatcher (bipartiteMatching)
+import Test.Predicates.Internal.Util (isSubsequenceOf)
 #endif
 
 -- $setup
@@ -498,99 +502,6 @@ notP p =
       explain = explain p
     }
 
--- | A 'Predicate' that accepts sequences that start with the given prefix.
---
--- >>> accept (startsWith "fun") "fungible"
--- True
--- >>> accept (startsWith "gib") "fungible"
--- False
-startsWith :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
-startsWith pfx = withDefaultExplain show " " $ \explainImpl ->
-  Predicate
-    { showPredicate = "starts with " ++ show pfx,
-      showNegation = "doesn't start with " ++ show pfx,
-      accept = (pfx `Seq.isPrefixOf`),
-      explain = explainImpl
-    }
-
--- | A 'Predicate' that accepts sequences that end with the given suffix.
---
--- >>> accept (endsWith "ow") "crossbow"
--- True
--- >>> accept (endsWith "ow") "trebuchet"
--- False
-endsWith :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
-endsWith sfx = withDefaultExplain show " " $ \explainImpl ->
-  Predicate
-    { showPredicate = "ends with " ++ show sfx,
-      showNegation = "doesn't end with " ++ show sfx,
-      accept = (sfx `Seq.isSuffixOf`),
-      explain = explainImpl
-    }
-
--- | A 'Predicate' that accepts sequences that contain the given (consecutive)
--- substring.
---
--- >>> accept (hasSubstr "i") "team"
--- False
--- >>> accept (hasSubstr "i") "partnership"
--- True
-hasSubstr :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
-hasSubstr s = withDefaultExplain show " " $ \explainImpl ->
-  Predicate
-    { showPredicate = "has substring " ++ show s,
-      showNegation = "doesn't have substring " ++ show s,
-      accept = (s `Seq.isInfixOf`),
-      explain = explainImpl
-    }
-
--- | A 'Predicate' that accepts sequences that contain the given (not
--- necessarily consecutive) subsequence.
---
--- >>> accept (hasSubsequence [1..5]) [1, 2, 3, 4, 5]
--- True
--- >>> accept (hasSubsequence [1..5]) [0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0]
--- True
--- >>> accept (hasSubsequence [1..5]) [2, 3, 5, 7, 11]
--- False
-hasSubsequence :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
-hasSubsequence s = withDefaultExplain show " " $ \explainImpl ->
-  Predicate
-    { showPredicate = "has subsequence " ++ show s,
-      showNegation = "doesn't have subsequence " ++ show s,
-      accept = (s `isSubsequenceOf`),
-      explain = explainImpl
-    }
-
--- | Transforms a 'Predicate' on 'String's or string-like types to match without
--- regard to case.
---
--- >>> accept (caseInsensitive startsWith "foo") "FOOTBALL!"
--- True
--- >>> accept (caseInsensitive endsWith "ball") "soccer"
--- False
--- >>> accept (caseInsensitive eq "time") "TIME"
--- True
--- >>> accept (caseInsensitive gt "NOTHING") "everything"
--- False
-caseInsensitive ::
-  ( MonoFunctor t,
-    MonoFunctor a,
-    Element t ~ Char,
-    Element a ~ Char
-  ) =>
-  (t -> Predicate a) ->
-  (t -> Predicate a)
-caseInsensitive p s =
-  Predicate
-    { showPredicate = "(case insensitive) " ++ show (p s),
-      showNegation = "(case insensitive) " ++ show (notP (p s)),
-      accept = accept capP . omap toUpper,
-      explain = explain capP . omap toUpper
-    }
-  where
-    capP = p (omap toUpper s)
-
 #ifdef REGEX
 
 -- | A 'Predicate' that accepts 'String's or string-like values matching a
@@ -729,6 +640,101 @@ containsCaseInsensitiveRegex s = withDefaultExplain show " " $ \explainImpl ->
     exec = defaultExecOpt {captureGroups = False}
 
 #endif
+
+#ifdef CONTAINERS
+
+-- | A 'Predicate' that accepts sequences that start with the given prefix.
+--
+-- >>> accept (startsWith "fun") "fungible"
+-- True
+-- >>> accept (startsWith "gib") "fungible"
+-- False
+startsWith :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
+startsWith pfx = withDefaultExplain show " " $ \explainImpl ->
+  Predicate
+    { showPredicate = "starts with " ++ show pfx,
+      showNegation = "doesn't start with " ++ show pfx,
+      accept = (pfx `Seq.isPrefixOf`),
+      explain = explainImpl
+    }
+
+-- | A 'Predicate' that accepts sequences that end with the given suffix.
+--
+-- >>> accept (endsWith "ow") "crossbow"
+-- True
+-- >>> accept (endsWith "ow") "trebuchet"
+-- False
+endsWith :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
+endsWith sfx = withDefaultExplain show " " $ \explainImpl ->
+  Predicate
+    { showPredicate = "ends with " ++ show sfx,
+      showNegation = "doesn't end with " ++ show sfx,
+      accept = (sfx `Seq.isSuffixOf`),
+      explain = explainImpl
+    }
+
+-- | A 'Predicate' that accepts sequences that contain the given (consecutive)
+-- substring.
+--
+-- >>> accept (hasSubstr "i") "team"
+-- False
+-- >>> accept (hasSubstr "i") "partnership"
+-- True
+hasSubstr :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
+hasSubstr s = withDefaultExplain show " " $ \explainImpl ->
+  Predicate
+    { showPredicate = "has substring " ++ show s,
+      showNegation = "doesn't have substring " ++ show s,
+      accept = (s `Seq.isInfixOf`),
+      explain = explainImpl
+    }
+
+-- | A 'Predicate' that accepts sequences that contain the given (not
+-- necessarily consecutive) subsequence.
+--
+-- >>> accept (hasSubsequence [1..5]) [1, 2, 3, 4, 5]
+-- True
+-- >>> accept (hasSubsequence [1..5]) [0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0]
+-- True
+-- >>> accept (hasSubsequence [1..5]) [2, 3, 5, 7, 11]
+-- False
+hasSubsequence :: (Show t, Seq.IsSequence t, Eq (Element t)) => t -> Predicate t
+hasSubsequence s = withDefaultExplain show " " $ \explainImpl ->
+  Predicate
+    { showPredicate = "has subsequence " ++ show s,
+      showNegation = "doesn't have subsequence " ++ show s,
+      accept = (s `isSubsequenceOf`),
+      explain = explainImpl
+    }
+
+-- | Transforms a 'Predicate' on 'String's or string-like types to match without
+-- regard to case.
+--
+-- >>> accept (caseInsensitive startsWith "foo") "FOOTBALL!"
+-- True
+-- >>> accept (caseInsensitive endsWith "ball") "soccer"
+-- False
+-- >>> accept (caseInsensitive eq "time") "TIME"
+-- True
+-- >>> accept (caseInsensitive gt "NOTHING") "everything"
+-- False
+caseInsensitive ::
+  ( MonoFunctor t,
+    MonoFunctor a,
+    Element t ~ Char,
+    Element a ~ Char
+  ) =>
+  (t -> Predicate a) ->
+  (t -> Predicate a)
+caseInsensitive p s =
+  Predicate
+    { showPredicate = "(case insensitive) " ++ show (p s),
+      showNegation = "(case insensitive) " ++ show (notP (p s)),
+      accept = accept capP . omap toUpper,
+      explain = explain capP . omap toUpper
+    }
+  where
+    capP = p (omap toUpper s)
 
 -- | A 'Predicate' that accepts empty data structures.
 --
@@ -1025,6 +1031,8 @@ values p =
       accept = accept p . map snd . toList,
       explain = ("in values, " ++) . explain p . map snd . toList
     }
+
+#endif
 
 -- | A 'Predicate' that accepts values of 'RealFloat' types that are close to
 -- the given number.  The expected precision is scaled based on the target
