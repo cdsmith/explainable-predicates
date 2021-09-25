@@ -1348,14 +1348,18 @@ inBranch name f p =
 qADT :: Name -> ExpQ
 qADT conName =
   do
-    t <- reifyType conName
+    let prettyConName = lift (pprint (removeModNames conName))
+    t <- reify conName >>= (\case
+       DataConI _ ty _ -> pure ty
+       PatSynI _ ty -> pure ty
+       _ -> fail $ "qADT: " ++ show conName ++ " is not a data constructor")
+
     let n = countArguments t
     subpreds <- replicateM n (newName "p")
     let subdescs =
           map
             (\p -> [|"(" ++ showPredicate $p ++ ")"|])
             (varE <$> subpreds)
-    let prettyConName = lift (pprint (removeModNames conName))
     let desc = [|unwords ($prettyConName : $(listE subdescs))|]
     let negDesc
           | n == 0 = [|"≠ " ++ $desc|]
@@ -1368,10 +1372,11 @@ qADT conName =
               (\p x -> [|(accept $p $x, explain $p $x)|])
               (varE <$> subpreds)
               (varE <$> args)
+    y <- newName "y"
     lamE
       (varP <$> subpreds)
       [|
-        let acceptAndExplain = \case
+        let acceptAndExplain $(varP y) = case $(varE y) of
               $pattern -> Just $acceptExplainFields
               _ -> Nothing
          in Predicate
@@ -1391,6 +1396,9 @@ qADT conName =
   where
     countArguments (ForallT _ _ t) = countArguments t
     countArguments (AppT (AppT ArrowT _) t) = countArguments t + 1
+#if MIN_VERSION_template_haskell(2,17,0)
+    countArguments (AppT (AppT (AppT MulArrowT _) _) t) = countArguments t + 1
+#endif
     countArguments _ = 0
 
 -- | A Template Haskell splice that turns a quoted pattern into a predicate that
