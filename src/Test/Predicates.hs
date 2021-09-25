@@ -17,6 +17,7 @@
 module Test.Predicates
   ( -- * The Predicate type
     Predicate (..),
+    (==~),
 
     -- * Predicate combinators
 
@@ -134,6 +135,15 @@ data Predicate a = Predicate
   }
 
 instance Show (Predicate a) where show = showPredicate
+
+-- | An infix synonym for 'accept'.
+--
+-- >>> eq 1 ==~ 1
+-- True
+-- >>> eq 2 ==~ 1
+-- False
+(==~) :: Predicate a -> a -> Bool
+(==~) = accept
 
 withDefaultExplain ::
   (a -> String) -> String -> ((a -> String) -> Predicate a) -> Predicate a
