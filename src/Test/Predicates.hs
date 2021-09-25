@@ -54,7 +54,6 @@ module Test.Predicates
 #endif
 
 #ifdef CONTAINERS
-
     -- ** Strings and sequences
     startsWith,
     endsWith,
@@ -91,17 +90,20 @@ module Test.Predicates
     qIs,
     with,
     qWith,
+    inBranch,
+    qADT,
     qMatch,
     typed,
   )
 where
 
+import Control.Monad (replicateM)
 import Data.Functor.Contravariant (Contravariant (..))
 import Data.List (intercalate)
 import Data.Maybe (isNothing)
 import Data.Typeable (Proxy (..), Typeable, cast, typeRep)
 import GHC.Stack (HasCallStack, callStack)
-import Language.Haskell.TH (ExpQ, PatQ, pprint)
+import Language.Haskell.TH
 import Language.Haskell.TH.Syntax (lift)
 import Test.Predicates.Internal.Util (locate, removeModNames, withLoc)
 
@@ -1306,6 +1308,88 @@ qWith f =
     |]
   where
     prop = lift . pprint . removeModNames =<< f
+
+-- | A 'Predicate' that accepts values with a given nested value.  This is
+-- intended to match constructors with arguments.  For a more
+--
+-- >>> accept (inBranch "Left" (\case {Left x -> Just x; _ -> Nothing}) positive) (Left 1)
+-- True
+-- >>> accept (inBranch "Left" (\case {Left x -> Just x; _ -> Nothing}) positive) (Left 0)
+-- False
+-- >>> accept (inBranch "Left" (\case {Left x -> Just x; _ -> Nothing}) positive) (Right 1)
+-- False
+inBranch :: String -> (a -> Maybe b) -> Predicate b -> Predicate a
+inBranch name f p =
+  Predicate
+    { showPredicate = "(" ++ name ++ " _)",
+      showNegation = "not (" ++ name ++ " _)",
+      accept = \x -> case f x of Just y -> accept p y; _ -> False,
+      explain = \x -> case f x of
+        Just y -> "In " ++ name ++ ": " ++ explain p y
+        _ -> "Branch didn't match"
+    }
+
+-- A Template Haskell splice which, given a constructor for an abstract data
+-- type, writes a 'Predicate' that matches on that constructor and applies other
+-- 'Predicate's to its fields.
+--
+-- >>> accept $(qADT 'Nothing) Nothing
+-- True
+-- >>> accept $(qADT 'Nothing) (Just 5)
+-- False
+-- >>> accept ($(qADT 'Just) positive) (Just 5)
+-- True
+-- >>> accept ($(qADT 'Just) positive) Nothing
+-- False
+-- >>> accept ($(qADT 'Just) positive) (Just 0)
+-- False
+qADT :: Name -> ExpQ
+qADT conName =
+  do
+    t <- reifyType conName
+    let n = countArguments t
+    subpreds <- replicateM n (newName "p")
+    let subdescs =
+          map
+            (\p -> [|"(" ++ showPredicate $p ++ ")"|])
+            (varE <$> subpreds)
+    let prettyConName = lift (pprint (removeModNames conName))
+    let desc = [|unwords ($prettyConName : $(listE subdescs))|]
+    let negDesc
+          | n == 0 = [|"≠ " ++ $desc|]
+          | otherwise = [|"not (" ++ $desc ++ ")"|]
+    args <- replicateM n (newName "x")
+    let pattern = conP conName (varP <$> args)
+    let acceptExplainFields =
+          listE $
+            zipWith
+              (\p x -> [|(accept $p $x, explain $p $x)|])
+              (varE <$> subpreds)
+              (varE <$> args)
+    lamE
+      (varP <$> subpreds)
+      [|
+        let acceptAndExplain = \case
+              $pattern -> Just $acceptExplainFields
+              _ -> Nothing
+         in Predicate
+              { showPredicate = $desc,
+                showNegation = $negDesc,
+                accept = maybe False (all fst) . acceptAndExplain,
+                explain = \x -> case acceptAndExplain x of
+                  Nothing -> "Not a " ++ $prettyConName
+                  Just results ->
+                    let significant
+                          | all fst results = results
+                          | otherwise = filter (not . fst) results
+                     in "In " ++ $prettyConName ++ ": "
+                          ++ intercalate " and " (map snd significant)
+              }
+        |]
+  where
+    countArguments (ForallT _ _ t) = countArguments t
+    countArguments (AppT (AppT ArrowT _) t) = countArguments t + 1
+    countArguments _ = 0
 
 -- | A Template Haskell splice that turns a quoted pattern into a predicate that
 -- accepts values that match the pattern.

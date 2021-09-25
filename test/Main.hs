@@ -14,6 +14,11 @@ import qualified Test.DocTest.Driver as DocTest
 
 #endif
 
+-- Sample ADT to use for testing.
+data Foo = Foo0 | Foo1 Int | Foo2 Int Int
+
+$(pure [])
+
 main :: IO ()
 main = do
   hspec predicateTests
@@ -117,6 +122,23 @@ predicateTests = do
           `shouldSatisfy` ("property at " `isPrefixOf`)
         show ($(qWith [|length|]) (gt 5) :: Predicate String)
           `shouldBe` "length: > 5"
+
+    it "matches ADTs" $
+      example $ do
+        accept $(qADT 'Foo0) Foo0 `shouldBe` True
+        accept $(qADT 'Foo0) (Foo1 5) `shouldBe` False
+        accept $(qADT 'Foo0) (Foo2 5 6) `shouldBe` False
+
+        accept ($(qADT 'Foo1) positive) Foo0 `shouldBe` False
+        accept ($(qADT 'Foo1) positive) (Foo1 5) `shouldBe` True
+        accept ($(qADT 'Foo1) positive) (Foo1 0) `shouldBe` False
+        accept ($(qADT 'Foo1) positive) (Foo2 5 6) `shouldBe` False
+
+        accept ($(qADT 'Foo2) positive positive) Foo0 `shouldBe` False
+        accept ($(qADT 'Foo2) positive positive) (Foo1 5) `shouldBe` False
+        accept ($(qADT 'Foo2) positive positive) (Foo2 5 6) `shouldBe` True
+        accept ($(qADT 'Foo2) positive positive) (Foo2 0 6) `shouldBe` False
+        accept ($(qADT 'Foo2) positive positive) (Foo2 5 0) `shouldBe` False
 
     it "matches patterns" $
       example $ do
