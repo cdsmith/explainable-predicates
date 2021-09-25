@@ -9,7 +9,8 @@ which $CMD > /dev/null || \
     exit 1
 
 MODULES=$(grep -l -- '-- >>>' $(find src -name *.hs) \
-             | sed 's/src\///' | sed 's/\.hs$//' | sed 's/\//./g')
+             | sed 's/src\///' | sed 's/\.hs$//' | sed 's/\//./g' \
+             | grep -v 'Test.Predicates.QuickCheck')
 
 $CMD --import-dir src \
      --output-dir test \

@@ -9,6 +9,7 @@
 * Cabal `dev` flag (default false) turns GHC warnings into errors.
 * The `inBranch` and `qADT` combinators are now available for more convenient
   matching of algebraic data types and fields.
+* QuickCheck integration is now available in `Test.Predicates.QuickCheck`.
 
 ## 0.1.0.0 -- 2021-09-18
 
