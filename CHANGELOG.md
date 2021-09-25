@@ -7,6 +7,8 @@
 * Cabal `regex` and `containers` flags (default true) enable regex and
   container predicates, respectively.
 * Cabal `dev` flag (default false) turns GHC warnings into errors.
+* The `inBranch` and `qADT` combinators are now available for more convenient
+  matching of algebraic data types and fields.
 
 ## 0.1.0.0 -- 2021-09-18
 

@@ -131,6 +131,7 @@ import Test.Predicates.Internal.Util (isSubsequenceOf)
 #endif
 
 -- $setup
+-- >>> :set -XLambdaCase
 -- >>> :set -XTemplateHaskell
 -- >>> :set -XTypeApplications
 -- >>> :set -Wno-type-defaults
@@ -1310,7 +1311,8 @@ qWith f =
     prop = lift . pprint . removeModNames =<< f
 
 -- | A 'Predicate' that accepts values with a given nested value.  This is
--- intended to match constructors with arguments.  For a more
+-- intended to match constructors with arguments.  You can use 'qADT' instead
+-- to get better explanations using Template Haskell.
 --
 -- >>> accept (inBranch "Left" (\case {Left x -> Just x; _ -> Nothing}) positive) (Left 1)
 -- True
