@@ -12,9 +12,14 @@ import Test.QuickCheck (Property, counterexample)
 
 -- | QuickCheck property that checks if a predicate is satisfied.
 --
--- prop> \(Positive x) -> [0 .. x] `satisfies` (containsAll [eq 1, eq 2])
--- *** Failed! Falsified (after 1 test):
--- Positive {getPositive = 1}
--- Missing: 2
+-- @
+--   quickCheck $ \(Positive x) -> [0 .. x] 'satisfies' (containsAll [eq 1, eq 2])
+-- @
+--
+-- @
+--   *** Failed! Falsified (after 1 test):
+--   Positive {getPositive = 1}
+--   Missing: 2
+-- @
 satisfies :: a -> Predicate a -> Property
 x `satisfies` p = counterexample (explain p x) (accept p x)

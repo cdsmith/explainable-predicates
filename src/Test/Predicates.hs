@@ -1250,7 +1250,7 @@ qIs p =
 
 -- | A combinator to lift a 'Predicate' to work on a property or computed value
 -- of the original value.  The explanations are less helpful that standard
--- predicates like 'size'.  You can use 'qWith' instead to get better
+-- predicates like 'sizeIs'.  You can use 'qWith' instead to get better
 -- explanations using Template Haskell.
 --
 -- >>> accept (with abs (gt 5)) (-6)
@@ -1331,7 +1331,7 @@ inBranch name f p =
         _ -> "Branch didn't match"
     }
 
--- A Template Haskell splice which, given a constructor for an abstract data
+-- | A Template Haskell splice which, given a constructor for an abstract data
 -- type, writes a 'Predicate' that matches on that constructor and applies other
 -- 'Predicate's to its fields.
 --
