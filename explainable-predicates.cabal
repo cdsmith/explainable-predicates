@@ -41,6 +41,11 @@ flag quickcheck
     manual:            True
     default:           True
 
+flag hunit
+    description:       Enable HUnit/Hspec integration
+    manual:            True
+    default:           True
+
 flag dev
     description:       Developer build
     manual:            True
@@ -69,6 +74,10 @@ library
     if flag(quickcheck)
         build-depends:   QuickCheck >= 2.8 && < 2.15,
         exposed-modules: Test.Predicates.QuickCheck
+
+    if flag(hunit)
+        build-depends:   HUnit >= 1.3.0 && < 1.7,
+        exposed-modules: Test.Predicates.HUnit
 
     if flag(dev)
         ghc-options:     -Werror

@@ -1,5 +1,9 @@
 # Revision history for explainable-predicates
 
+## 0.1.2.0 -- 2021-09-25
+
+* HUnit and Hspec integration is now available in `Test.Predicates.HUnit`.
+
 ## 0.1.1.0 -- 2021-09-25
 
 * `Predicate` now has a `Contravariant` instance.
