@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               explainable-predicates
-version:            0.1.2.0
+version:            0.1.2.1
 synopsis:           Predicates that can explain themselves.
 description:        Explainable predicates are essentially functions from types
                     to 'Bool' which can additionally describe themselves and
