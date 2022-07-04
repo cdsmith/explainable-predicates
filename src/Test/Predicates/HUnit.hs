@@ -1,17 +1,15 @@
 -- | HUnit and Hspec integration for 'Predicate'
 module Test.Predicates.HUnit (assertSatisfied, (@?~), shouldSatisfy) where
 
-import Test.HUnit (Assertion, assertFailure)
-import Test.Predicates (Predicate (accept, explain))
+import GHC.Stack (HasCallStack, withFrozenCallStack)
+import Test.HUnit (Assertion)
+import Test.Predicates (Predicate, acceptIO)
 
-assertSatisfied :: Predicate a -> a -> Assertion
-assertSatisfied predicate val =
-  if accept predicate val
-    then return ()
-    else assertFailure (explain predicate val)
+assertSatisfied :: HasCallStack => Predicate a -> a -> Assertion
+assertSatisfied = withFrozenCallStack acceptIO
 
-(@?~) :: a -> Predicate a -> Assertion
-(@?~) = flip assertSatisfied
+(@?~) :: HasCallStack => a -> Predicate a -> Assertion
+(@?~) = flip (withFrozenCallStack acceptIO)
 
-shouldSatisfy :: a -> Predicate a -> Assertion
-shouldSatisfy = flip assertSatisfied
+shouldSatisfy :: HasCallStack => a -> Predicate a -> Assertion
+shouldSatisfy = flip (withFrozenCallStack acceptIO)
