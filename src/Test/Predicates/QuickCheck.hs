@@ -13,7 +13,7 @@ import Test.QuickCheck (Property, counterexample)
 -- | QuickCheck property that checks if a predicate is satisfied.
 --
 -- @
---   quickCheck $ \(Positive x) -> [0 .. x] 'satisfies' (containsAll [eq 1, eq 2])
+--   quickCheck $ \\(Positive x) -> [0 .. x] \`satisfies\` (containsAll [eq 1, eq 2])
 -- @
 --
 -- @
