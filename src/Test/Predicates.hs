@@ -19,6 +19,8 @@ module Test.Predicates
   ( -- * The Predicate type
     Predicate (..),
     (==~),
+    PredicateFailure (..),
+    acceptIO,
 
     -- * Predicate combinators
 
@@ -97,12 +99,13 @@ module Test.Predicates
   )
 where
 
-import Control.Monad (replicateM)
+import Control.Exception (Exception, throwIO)
+import Control.Monad (replicateM, unless)
 import Data.Functor.Contravariant (Contravariant (..))
 import Data.List (intercalate)
 import Data.Maybe (isNothing)
 import Data.Typeable (Proxy (..), Typeable, cast, typeRep)
-import GHC.Stack (HasCallStack, callStack)
+import GHC.Stack (CallStack, HasCallStack, callStack, prettyCallStack)
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax (lift)
 import Test.Predicates.Internal.Util (locate, removeModNames, withLoc)
@@ -147,6 +150,18 @@ data Predicate a = Predicate
   }
 
 instance Show (Predicate a) where show = showPredicate
+
+data PredicateFailure = PredicateFailure String CallStack
+
+instance Show PredicateFailure where
+  show (PredicateFailure message cs) = message ++ "\n" ++ prettyCallStack cs
+instance Exception PredicateFailure
+
+-- | Same as 'accept', except throws a 'PredicateFailure' instead of returning a 'Bool'.
+acceptIO :: HasCallStack => Predicate a -> a -> IO ()
+acceptIO p x =
+  unless (accept p x) $
+    throwIO $ PredicateFailure (explain p x) callStack
 
 -- | An infix synonym for 'accept'.
 --
