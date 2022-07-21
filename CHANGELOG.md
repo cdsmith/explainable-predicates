@@ -1,5 +1,9 @@
 # Revision history for explainable-predicates
 
+## 0.1.2.2 -- 2021-12-20
+
+* Better error messages for HUnit integration.
+
 ## 0.1.2.1 -- 2021-12-20
 
 * Builds with GHC 9.2.1
