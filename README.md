@@ -1,7 +1,7 @@
 # explainable-predicates - Predicates that can explain themselves
 
-![](https://travis-ci.com/cdsmith/explainable-predicates.svg?branch=main)
-![](https://img.shields.io/hackage/v/explainable-predicates)
+[![CI](https://github.com/cdsmith/explainable-predicates/actions/workflows/ci.yml/badge.svg)](https://github.com/cdsmith/explainable-predicates/actions/workflows/ci.yml)
+[![Hackage](https://img.shields.io/hackage/v/explainable-predicates)](https://hackage.haskell.org/package/explainable-predicates)
 
 [Explainable predicates](https://hackage.haskell.org/package/explainable-predicates)
 are essentially functions from types to `Bool` which can additionally describe
