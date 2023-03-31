@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* Version bounds now allow GHC 9.6
 * Fix TypeOperators warning in Test.Predicates
 
 ## 0.1.2.3 -- 2021-09-18
