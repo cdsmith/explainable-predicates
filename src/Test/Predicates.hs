@@ -10,6 +10,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
 
 -- | Explainable 'Predicate's are essentially functions from types to `Bool`
 -- which can additionally describe themselves and explain why an argument does
