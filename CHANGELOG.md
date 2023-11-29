@@ -1,8 +1,8 @@
 # Revision history for explainable-predicates
 
-## Unreleased
+## 0.1.2.4 -- 2023-11-28
 
-* Version bounds now allow GHC 9.6
+* Version bounds now allow GHC 9.6 and 9.8
 * Fix TypeOperators warning in Test.Predicates
 
 ## 0.1.2.3 -- 2021-09-18
