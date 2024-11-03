@@ -1,5 +1,9 @@
 # Revision history for explainable-predicates
 
+## Unreleased
+
+* Version bounds now allow GHC 9.10
+
 ## 0.1.2.4 -- 2023-11-28
 
 * Version bounds now allow GHC 9.6 and 9.8
