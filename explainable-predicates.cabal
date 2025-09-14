@@ -72,7 +72,7 @@ library
         cpp-options:     -DCONTAINERS
 
     if flag(quickcheck)
-        build-depends:   QuickCheck >= 2.8 && < 2.15,
+        build-depends:   QuickCheck >= 2.8 && < 2.17,
         exposed-modules: Test.Predicates.QuickCheck
 
     if flag(hunit)
