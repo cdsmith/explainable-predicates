@@ -1,6 +1,6 @@
 # Revision history for explainable-predicates
 
-## Unreleased
+## 0.1.3.0 -- 2026-09-01
 
 * Version bounds now allow GHC 9.10 through GHC 9.14.
 * Version bounds now allow QuickCheck 2.18.
