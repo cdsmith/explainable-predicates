@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-* Version bounds now allow GHC 9.10
+* Version bounds now allow GHC 9.10 through GHC 9.14.
+* Version bounds now allow QuickCheck 2.18.
+* Dropped support for GHC 8.x.  The minimum supported version is now GHC 9.0.
+* Fixed `-Wx-partial` warnings, so the `dev` flag (which adds `-Werror`)
+  builds cleanly on GHC 9.8 and later.
+* Fixed a duplicated guard in `negative`, which caused `explain` to report
+  "value has unknown sign" instead of "value is positive" for positive values.
 
 ## 0.1.2.4 -- 2023-11-28
 

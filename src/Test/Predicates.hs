@@ -548,7 +548,7 @@ matchesRegex s =
           else show x ++ " doesn't match " ++ pat
     }
   where
-    pat = "/" ++ init (tail $ show s) ++ "/"
+    pat = "/" ++ init (drop 1 $ show s) ++ "/"
     accepts x = case matchOnceText r x of
       Just (a, _, b) -> a == empty && b == empty
       Nothing -> False
@@ -583,7 +583,7 @@ matchesCaseInsensitiveRegex s =
           else show x ++ " doesn't match " ++ pat
     }
   where
-    pat = "/" ++ init (tail $ show s) ++ "/i"
+    pat = "/" ++ init (drop 1 $ show s) ++ "/i"
     accepts x = case matchOnceText r x of
       Just (a, _, b) -> a == empty && b == empty
       Nothing -> False
@@ -619,7 +619,7 @@ containsRegex s = withDefaultExplain show " " $ \explainImpl ->
       explain = explainImpl
     }
   where
-    pat = "/" ++ init (tail $ show s) ++ "/"
+    pat = "/" ++ init (drop 1 $ show s) ++ "/"
     r = makeRegexOpts comp exec s :: Regex
     comp = defaultCompOpt {newSyntax = True, lastStarGreedy = True}
     exec = defaultExecOpt {captureGroups = False}
@@ -648,7 +648,7 @@ containsCaseInsensitiveRegex s = withDefaultExplain show " " $ \explainImpl ->
       explain = explainImpl
     }
   where
-    pat = "/" ++ init (tail $ show s) ++ "/i"
+    pat = "/" ++ init (drop 1 $ show s) ++ "/i"
     r = makeRegexOpts comp exec s :: Regex
     comp =
       defaultCompOpt
@@ -1126,7 +1126,7 @@ negative =
         if
             | signum x < 0 -> "value is negative"
             | x == 0 -> "value is zero"
-            | signum x < 0 -> "value is positive"
+            | signum x > 0 -> "value is positive"
             | otherwise -> "value has unknown sign"
     }
 
@@ -1412,9 +1412,7 @@ qADT conName =
   where
     countArguments (ForallT _ _ t) = countArguments t
     countArguments (AppT (AppT ArrowT _) t) = countArguments t + 1
-#if MIN_VERSION_template_haskell(2,17,0)
     countArguments (AppT (AppT (AppT MulArrowT _) _) t) = countArguments t + 1
-#endif
     countArguments _ = 0
 
 -- | A Template Haskell splice that turns a quoted pattern into a predicate that
